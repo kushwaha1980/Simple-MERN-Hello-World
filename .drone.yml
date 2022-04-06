@@ -2,11 +2,71 @@ kind: pipeline
 name: default
 
 steps:
-  - name: test frontend
+  - name: npm test
     image: node:16-alpine
     commands:
     - npm install
     - npm test
+
+  - name: build frontend (dry run)
+    image: plugins/docker
+    settings:
+      username: jimsheldon
+      password:
+        from_secret: docker_password
+      repo: jimsheldon/mernfrontend
+      tags:
+      - latest
+      - ${DRONE_COMMIT_SHA:0:8}
+    when:
+      event:
+      - pull_request
+
+  - name: build backend (dry run)
+    image: plugins/docker
+    settings:
+      username: jimsheldon
+      password:
+        from_secret: docker_password
+      repo: jimsheldon/mernbackend
+      context: Backend
+      dockerfile: Backend/Dockerfile
+      tags:
+      - latest
+      - ${DRONE_COMMIT_SHA:0:8}
+    when:
+      event:
+      - pull_request
+
+  - name: build frontend
+    image: plugins/docker
+    settings:
+      username: jimsheldon
+      password:
+        from_secret: docker_password
+      repo: jimsheldon/mernfrontend
+      tags:
+      - latest
+      - ${DRONE_COMMIT_SHA:0:8}
+    when:
+      event:
+      - push
+
+  - name: build backend
+    image: plugins/docker
+    settings:
+      username: jimsheldon
+      password:
+        from_secret: docker_password
+      repo: jimsheldon/mernbackend
+      context: Backend
+      dockerfile: Backend/Dockerfile
+      tags:
+      - latest
+      - ${DRONE_COMMIT_SHA:0:8}
+    when:
+      event:
+      - push
 
 trigger:
   branch:
