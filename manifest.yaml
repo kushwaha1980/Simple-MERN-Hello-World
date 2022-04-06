@@ -1,0 +1,49 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: helloworld
+  labels:
+    app: helloworld
+    service: helloworld
+spec:
+  ports:
+  - port: 80
+    name: http
+  selector:
+    app: helloworld
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: helloworld-v1
+  labels:
+    version: v1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: helloworld
+      version: v1
+  template:
+    metadata:
+      labels:
+        app: helloworld
+        version: v1
+    spec:
+      containers:
+      - name: backend
+        image: jimsheldon/mernbackend:7
+        resources:
+          requests:
+            cpu: "100m"
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 5001
+      - name: helloworld
+        image: jimsheldon/mernfrontend:5
+        resources:
+          requests:
+            cpu: "100m"
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 80
