@@ -5,7 +5,7 @@ metadata:
 spec:
   defaultBackend:
     service:
-      name: http
+      name: helloworld
       port:
         number: 80
 ---
