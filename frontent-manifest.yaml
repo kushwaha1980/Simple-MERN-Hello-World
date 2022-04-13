@@ -12,44 +12,36 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: helloworld
+  name: mern-frontend
   labels:
-    app: helloworld
-    service: helloworld
+    app: mern-frontend
+    service: mern-frontend
 spec:
   ports:
   - port: 80
     name: http
   selector:
-    app: helloworld
+    app: mern-frontend
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: helloworld-v1
+  name: mern-frontend
   labels:
     version: v1
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: helloworld
+      app: mern-frontend
       version: v1
   template:
     metadata:
       labels:
-        app: helloworld
+        app: mern-frontend
         version: v1
     spec:
       containers:
-      - name: backend
-        image: jimsheldon/mernbackend:cf2030bb
-        resources:
-          requests:
-            cpu: "100m"
-        imagePullPolicy: IfNotPresent
-        ports:
-        - containerPort: 5001
       - name: helloworld
         image: jimsheldon/mernfrontend:cf2030bb
         resources:
