@@ -46,7 +46,7 @@ spec:
         image: jimsheldon/mernbackend:f5eabe0f
         env:
         - name: MONGO_URI
-          value: <+secrets.getValue("mongo_uri")>
+          value: {{.Values.mongo_uri}}
         resources:
           requests:
             cpu: "100m"
