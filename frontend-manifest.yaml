@@ -5,7 +5,7 @@ metadata:
 spec:
   defaultBackend:
     service:
-      name: helloworld
+      name: mern-frontend
       port:
         number: 80
 ---
