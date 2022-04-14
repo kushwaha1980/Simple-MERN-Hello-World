@@ -43,7 +43,7 @@ spec:
     spec:
       containers:
       - name: backend
-        image: jimsheldon/mernbackend:cf2030bb
+        image: jimsheldon/mernbackend:f5eabe0f
         env:
         - name: MONGO_URI
           value: <+secrets.getValue("mongo_uri")>
