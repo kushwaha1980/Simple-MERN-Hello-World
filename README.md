@@ -1,10 +1,21 @@
 # Getting Started 
-Getting started with running the application:
 
-Clone the Git repo - https://github.com/pavanbelagatti/Simple-MERN-Hello-World
+Note: The backend requires a running MongoDB instance (you can sign up for a free trial of [MongoDB Atlas](https://www.mongodb.com/atlas) if needed)
 
-Go to the Backend folder and run it with the command ‘node server.js’ 
+1. Clone this repository
 
-Go to the root of the application folder, install the required dependencies by running ‘npm install’ and run it with the command ‘yarn start or npm start’
+2. Go to the Backend folder and run:
 
-You should then see the output on your local http://localhost:3001/
+```bash
+$ export MONGO_URI="mongodb+srv://user:password@address"
+$ node server.js
+```
+
+3. Go to the root of the application folder, install the required dependencies and run:
+
+```bash
+$ npm install
+$ npm start
+```
+
+4. You should then see the output on your local http://localhost:3001/

@@ -44,6 +44,9 @@ spec:
       containers:
       - name: backend
         image: jimsheldon/mernbackend:cf2030bb
+        env:
+        - name: MONGO_URI
+          value: <+secrets.getValue("mongo_uri")>
         resources:
           requests:
             cpu: "100m"
