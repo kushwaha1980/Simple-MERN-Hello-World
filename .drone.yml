@@ -44,13 +44,6 @@ steps:
       event:
       - push
 
-trigger:
-  branch:
-  - main
-  paths:
-    exclude:
-    - Backend/*
-
 ---
 kind: pipeline
 name: backend
@@ -108,5 +101,3 @@ steps:
     when:
       event:
       - push
-
-
