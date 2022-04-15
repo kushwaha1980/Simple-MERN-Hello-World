@@ -11,7 +11,7 @@ function App() {
   // the code in the function will only run once but not every time we call setGreeting (like the App function).
   useEffect(()=>{
     const getGreeting = async()=>{ //to be able to use async and await in useEffect we need to create an async function.
-      const response = await fetch("http://34.107.217.154");//we fetch from our api server running on port 5001
+      const response = await fetch("http://34.111.13.43");//we fetch from our api server running on port 5001
       const data = await response.json(); //we get the json data
       //the data is an array with one item. This item is an object with _id and greeting properties
       //this makes sense since we turned the data into an array in line 20 in server.js and the array is the collection from MongoDB
