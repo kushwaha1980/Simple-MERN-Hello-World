@@ -19,10 +19,10 @@ steps:
     image: plugins/docker
     settings:
       dry_run: true
-      username: jimsheldon
+      username: kumard31
       password:
         from_secret: docker_password
-      repo: jimsheldon/mernfrontend
+      repo: kumard31/mernfrontend
       tags:
       - latest
       - ${DRONE_COMMIT_SHA:0:8}
@@ -33,10 +33,10 @@ steps:
   - name: build frontend
     image: plugins/docker
     settings:
-      username: jimsheldon
+      username: kumard31
       password:
         from_secret: docker_password
-      repo: jimsheldon/mernfrontend
+      repo: kumard31/mernfrontend
       tags:
       - latest
       - ${DRONE_COMMIT_SHA:0:8}
@@ -59,10 +59,10 @@ steps:
     image: plugins/docker
     settings:
       dry_run: true
-      username: jimsheldon
+      username: kumard31
       password:
         from_secret: docker_password
-      repo: jimsheldon/mernbackend
+      repo: kumard31/mernbackend
       context: Backend
       dockerfile: Backend/Dockerfile
       tags:
@@ -75,10 +75,10 @@ steps:
   - name: build backend
     image: plugins/docker
     settings:
-      username: jimsheldon
+      username: kumard31
       password:
         from_secret: docker_password
-      repo: jimsheldon/mernbackend
+      repo: kumard31/mernbackend
       context: Backend
       dockerfile: Backend/Dockerfile
       tags:
