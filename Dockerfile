@@ -1,4 +1,4 @@
-FROM node:latest AS builder
+FROM node:16.14.2 AS builder
 
 ENV NODE_ENV production
 
@@ -14,7 +14,7 @@ RUN yarn install --production
 COPY . .
 
 # Build the app
-RUN yarn build
+RUN npm run build
 
 FROM nginx:1.21.0-alpine as production
 
