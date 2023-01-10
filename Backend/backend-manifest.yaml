@@ -43,7 +43,7 @@ spec:
     spec:
       containers:
       - name: backend
-        image: kumard31/mernbackend:3619456
+        image: kumard31/mernbackend:361956
         env:
         - name: MONGO_URI
           value: {{.Values.mongo_uri}}
