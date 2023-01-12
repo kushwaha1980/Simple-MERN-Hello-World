@@ -14,7 +14,7 @@ RUN yarn install --production
 COPY . .
 
 # Build the app
-RUN npm run build
+RUN yarn build
 
 FROM nginx:1.21.0-alpine as production
 
