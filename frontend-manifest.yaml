@@ -43,7 +43,7 @@ spec:
     spec:
       containers:
       - name: helloworld
-        image: kumard31/mernfrontend:2a766af3
+        image: kumard31/mernfrontend:dba6c4dd
         resources:
           requests:
             cpu: "100m"
