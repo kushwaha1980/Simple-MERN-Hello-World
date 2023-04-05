@@ -1,4 +1,4 @@
-# Getting Started 
+## Getting Started 
 
 Note: The backend requires a running MongoDB instance (you can sign up for a free trial of [MongoDB Atlas](https://www.mongodb.com/atlas) if needed)
 
